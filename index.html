@@ -4,177 +4,170 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>MANGALYATRA24 RIDE</title>
-<link rel="manifest" href="manifest.json"><meta name="theme-color" content="#0A3B2C"><link rel="apple-touch-icon" href="icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
+<link rel="manifest" href="manifest.json"><meta name="theme-color" content="#CDF527"><link rel="apple-touch-icon" href="icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--g:#0A3B2C;--g2:#0F5240;--lime:#C9F26B;--surf:#F3F6F1;--card:#fff;--ink:#0D1F18;--mute:#6B7C73;--field:#EDF2EC;--shadow:0 12px 32px rgba(10,59,44,.14);color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--surf:#0C1612;--card:#15231D;--ink:#EAF4EE;--mute:#8FA398;--field:#1D2E26;--shadow:0 12px 32px rgba(0,0,0,.45);color-scheme:dark}}
-:root[data-theme="dark"]{--surf:#0C1612;--card:#15231D;--ink:#EAF4EE;--mute:#8FA398;--field:#1D2E26;--shadow:0 12px 32px rgba(0,0,0,.45);color-scheme:dark}
+:root{--t1:#0E0F0A;--t2:#868A78;--card:#fff;--field:#F3F4EE;--line:#E7E9DF;--lime:#CDF527;--lime2:#B7E40F;--sh:0 6px 22px rgba(30,40,0,.07);--pop:#fff;--btn:#0E0F0A;--btnt:#fff;--nv:#0E0F0A;--a:#F7F8F2;--b:#F7F8F2;--c:#EEF6C2;color-scheme:light;box-sizing:border-box}
+@media (prefers-color-scheme:dark){:root{--t1:#F4F6EC;--t2:#9A9E8A;--card:#1A1B14;--field:#252719;--line:#2D2F20;--sh:0 6px 22px rgba(0,0,0,.4);--pop:#20221A;--btn:#CDF527;--btnt:#0E0F0A;--nv:#262819;--a:#0F100B;--b:#10120B;--c:#222B06;color-scheme:dark}}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{height:100%;margin:0}
-body{background:var(--g);font-family:Poppins,-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,sans-serif;color:var(--ink);overflow:hidden}
-.app{max-width:480px;height:100%;margin:0 auto;position:relative;background:var(--surf);overflow:hidden}
-.view{position:absolute;inset:0;overflow-y:auto;opacity:0;transform:scale(.97);pointer-events:none;transition:opacity .45s ease,transform .6s cubic-bezier(.2,1,.3,1)}
+html,body{height:100%;margin:0;background:var(--a);-webkit-text-size-adjust:100%;overscroll-behavior:none}
+body{font-family:Poppins,-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,sans-serif;color:var(--t1);overflow:hidden}
+.bg{position:fixed;inset:0;background:linear-gradient(180deg,var(--a) 0%,var(--b) 55%,var(--c) 100%)}.bg i{display:none}
+.glass{background:var(--card);box-shadow:var(--sh)}
+.app{max-width:480px;height:100vh;height:100dvh;margin:0 auto;position:relative;overflow:hidden}
+.view{position:absolute;inset:0;overflow-y:auto;padding:calc(16px + env(safe-area-inset-top,0px)) 18px calc(120px + env(safe-area-inset-bottom,0px));opacity:0;transform:scale(.98);pointer-events:none;transition:opacity .4s ease,transform .6s cubic-bezier(.2,1,.3,1)}
 .view.on{opacity:1;transform:none;pointer-events:auto}
-.hero{background:linear-gradient(160deg,var(--g2),var(--g));color:#fff;padding:18px 20px 150px;border-radius:0 0 36px 36px;position:relative;overflow:hidden}
-.hero:after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(201,242,107,.28),transparent 70%)}
-.brand{display:flex;align-items:center;justify-content:space-between;font-weight:800;font-size:14px;letter-spacing:.3px}
-.brand span{display:flex;align-items:center;gap:8px}
-.mark{width:32px;height:32px;border-radius:10px;background:var(--lime);color:var(--g);display:grid;place-items:center;font-size:17px}
-.live{font-size:12px;font-weight:700;background:rgba(255,255,255,.14);padding:6px 10px;border-radius:14px;display:flex;align-items:center;gap:6px}
-.live i{width:7px;height:7px;border-radius:50%;background:var(--lime);animation:bl 1.6s infinite}
-@keyframes bl{50%{opacity:.25}}
-h1{font-size:27px;line-height:1.22;margin:22px 0 6px;font-weight:600;letter-spacing:-.3px}
-.sub{margin:0;opacity:.75;font-size:14px;font-weight:600}
-.road{position:absolute;left:0;right:0;bottom:16px;height:2px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.35) 0 14px,transparent 14px 28px)}
-.car{position:absolute;bottom:20px;font-size:34px;left:0;animation:drive 9s linear infinite;transform:scaleX(-1)}
-@keyframes drive{from{left:-50px}to{left:105%}}
-.body{padding:0 16px 120px;margin-top:-52px;position:relative}
-.card{background:var(--card);border-radius:28px;padding:16px;box-shadow:var(--shadow);margin-bottom:16px}
-.in{opacity:0;transform:translateY(24px);animation:in .6s cubic-bezier(.2,1,.3,1) forwards}
+.top{display:flex;align-items:center;gap:10px}
+.logo,.ic{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-size:20px;color:var(--t1);padding:0;border:0}
+.ic{margin-left:auto;font:inherit;font-size:18px;font-weight:700}
+.brand{font-weight:700;font-size:13px;letter-spacing:1px;color:var(--t1)}
+h1,h2{font-weight:700;color:var(--t1);letter-spacing:-.8px}
+h2{font-size:30px;margin:22px 4px 18px}
+.hero{background:var(--lime);border-radius:32px;padding:22px 20px 14px;margin:16px 0 14px;color:#0E0F0A;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-44px;top:-56px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.38)}
+.hero h1{font-size:30px;line-height:1.12;margin:0 0 6px;color:#0E0F0A;position:relative;z-index:1}
+.road{height:52px;position:relative;margin-top:6px;border-bottom:2px dashed rgba(14,15,10,.35)}
+.road i{position:absolute;bottom:-6px;font-style:normal;font-size:36px;transform:scaleX(-1);animation:dr 8s linear infinite;left:-50px;z-index:1}
+.road i.b{animation-duration:12s;animation-delay:-5s;font-size:30px}
+@keyframes dr{to{left:100%}}
+.opts{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:4px 2px 14px;align-items:center}
+.opts::-webkit-scrollbar,.chips::-webkit-scrollbar{display:none}
+.opts button{flex:none;border:0;background:var(--card);color:var(--t2);font:inherit;font-weight:600;font-size:14px;padding:10px 16px;border-radius:22px;box-shadow:var(--sh);transition:background .3s,color .3s,transform .3s cubic-bezier(.3,1.5,.5,1)}
+.opts button.on{background:var(--btn);color:var(--btnt)}
+.opts button:active,.rt:active,.cab:active{transform:scale(.95)}
+.sep{width:1px;height:20px;background:var(--line);flex:none}
+.card{border-radius:28px;padding:16px;margin-bottom:16px}
+.in{opacity:0;transform:translateY(22px);animation:in .6s cubic-bezier(.2,1,.3,1) forwards}
 @keyframes in{to{opacity:1;transform:none}}
 .route{position:relative;padding-left:24px}
-.route:before{content:"";position:absolute;left:7px;top:26px;bottom:26px;border-left:2px dotted var(--mute);opacity:.6}
-.rf{position:relative;background:var(--field);border-radius:16px;padding:10px 14px;margin-bottom:10px;transition:box-shadow .3s,background .3s}
-.rf:focus-within{box-shadow:0 0 0 2px var(--g2);z-index:20}
-.card.in{position:relative;z-index:5}
-.hero .brand,.hero h1,.hero .sub{position:relative;z-index:1}
-.hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:44px 44px}
-.scene{position:absolute;left:0;right:0;bottom:0;height:96px;z-index:0}
-.lane{position:absolute;left:0;right:0;height:2px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.25) 0 12px,transparent 12px 24px)}
-.c{position:absolute;font-size:28px;transform:scaleX(-1);opacity:.85;font-style:normal}
-.c.l{transform:none}
-@keyframes dr{from{left:-60px}to{left:105%}}
-@keyframes dl{from{left:105%}to{left:-60px}}
-.pin{position:absolute;right:48px;top:48%;width:14px;height:14px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 4px rgba(201,242,107,.3)}
-.pin:after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid var(--lime);animation:rp 2s ease-out infinite}
-@keyframes rp{from{transform:scale(.6);opacity:1}to{transform:scale(3.4);opacity:0}}
-.sg{position:absolute;left:0;right:0;top:calc(100% + 6px);background:var(--card);border-radius:18px;box-shadow:0 16px 40px rgba(10,59,44,.3);overflow-y:auto;display:none;z-index:30;max-height:260px}
-.sg.on{display:block;animation:in .3s cubic-bezier(.2,1,.3,1) both}
-.sg button{display:flex;gap:10px;align-items:center;width:100%;text-align:left;border:0;background:transparent;color:var(--ink);font:inherit;font-weight:700;font-size:14px;padding:12px 14px}
-.sg button+button{border-top:1px solid var(--field)}
-.sg small{display:block;color:var(--mute);font-weight:600;font-size:12px;margin-top:1px}
-.sg .pi{font-size:18px;flex:none}
-.chips{display:flex;gap:8px;margin:8px 0 0;overflow-x:auto;scrollbar-width:none}
-.chips::-webkit-scrollbar{display:none}
-.chips button{flex:none;border:0;background:var(--field);color:var(--ink);font:inherit;font-weight:600;font-size:13px;padding:10px 14px;border-radius:14px;transition:background .3s,color .3s,transform .3s cubic-bezier(.3,1.5,.5,1)}
-.chips button.on{background:var(--g);color:var(--lime)}
-.chips button:active{transform:scale(.93)}
-.chips.two button{flex:1}
-.chips.rt{margin:0 0 18px;padding:2px 2px 8px}
-.chips.rt button{background:var(--card);box-shadow:var(--shadow)}
-.lbl{font-size:11px;color:var(--mute);font-weight:600;margin:12px 4px 0}
-.again{margin-left:auto;flex:none;border:0;background:var(--g);color:var(--lime);font:inherit;font-weight:600;font-size:12px;padding:9px 12px;border-radius:12px}
-.founder{display:flex;gap:14px;align-items:center}.founder .av{width:56px;height:56px;border-radius:18px;background:var(--g);color:var(--lime);display:grid;place-items:center;font-weight:700;font-size:20px;flex:none}
-.founder b{font-size:16px}.founder p{margin:2px 0 0;font-size:13px;color:var(--mute);font-weight:500}
-.feat{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}.feat div{background:var(--card);border-radius:20px;padding:14px;box-shadow:var(--shadow);font-size:13px;font-weight:600}.feat span{display:block;font-size:24px;margin-bottom:4px}
-.fnd{text-align:center;color:var(--mute);font-size:12px;font-weight:500;margin:16px 0 0}
+.route:before{content:"";position:absolute;left:7px;top:26px;bottom:26px;border-left:2px dotted var(--t2);opacity:.6}
+.rf{position:relative;background:var(--field);border-radius:18px;padding:9px 14px;margin-bottom:10px;transition:box-shadow .3s}
+.rf:focus-within{box-shadow:0 0 0 2px var(--lime2);z-index:20}
+.route .rf:before{content:"";position:absolute;left:-22px;top:50%;margin-top:-6px;width:12px;height:12px;border-radius:50%;background:var(--t1)}
+.route .rf.to:before{background:var(--lime);box-shadow:0 0 0 3px var(--t1)}
+label{display:block;font-size:11px;color:var(--t2);font-weight:500;margin-bottom:1px}
+input,select{width:100%;border:0;background:transparent;color:var(--t1);font:inherit;font-size:16px;font-weight:600;outline:none;padding:2px 0;min-width:0}
+select option{color:#0E0F0A}
+input::placeholder{color:var(--t2);font-weight:500}
 #pick{padding-right:44px}
-.loc{position:absolute;right:10px;top:10px;width:34px;height:34px;border-radius:50%;border:0;background:var(--g);color:var(--lime);font-size:15px;display:grid;place-items:center;transition:transform .3s cubic-bezier(.3,1.5,.5,1)}
-.loc:active{transform:scale(.88)}.loc.spin{animation:sp 1s linear infinite}@keyframes sp{to{transform:rotate(360deg)}}
-.route .rf:before{content:"";position:absolute;left:-22px;top:50%;margin-top:-6px;width:12px;height:12px;border-radius:50%;background:var(--g)}
-.route .rf.to:before{background:var(--lime);box-shadow:0 0 0 3px var(--g);border-radius:50%}
-label{display:block;font-size:11px;color:var(--mute);font-weight:700;margin-bottom:1px}
-input,select{width:100%;border:0;background:transparent;color:var(--ink);font:inherit;font-size:16px;font-weight:700;outline:none;padding:2px 0;min-width:0}
-input::placeholder{color:var(--mute);font-weight:600}
-.swap{position:absolute;right:10px;top:50%;margin-top:-20px;z-index:2;width:40px;height:40px;border-radius:50%;border:3px solid var(--card);background:var(--g);color:var(--lime);font-size:16px;transition:transform .5s cubic-bezier(.3,1.4,.5,1)}
+.swap,.loc{position:absolute;border-radius:50%;border:0;background:var(--btn);color:var(--btnt);box-shadow:0 4px 14px rgba(0,0,0,.2);transition:transform .45s cubic-bezier(.3,1.4,.5,1)}
+.swap{right:10px;top:50%;margin-top:-20px;z-index:2;width:40px;height:40px;font-size:16px}
+.loc{right:10px;top:9px;width:34px;height:34px;font-size:15px;display:grid;place-items:center;padding:0}
+.swap:active,.loc:active{transform:scale(.88)}.loc.spin{animation:sp 1s linear infinite}@keyframes sp{to{transform:rotate(360deg)}}
 .row{display:flex;gap:10px}.row>*{flex:1;min-width:0}
-.seg{display:flex;background:var(--field);border-radius:14px;padding:4px;position:relative;margin:2px 0 12px}
-.seg button{flex:1;border:0;background:transparent;color:var(--ink);font:inherit;font-weight:700;font-size:14px;padding:9px;position:relative;z-index:1}
-.seg i{position:absolute;top:4px;bottom:4px;left:4px;width:calc(50% - 4px);background:var(--card);border-radius:11px;box-shadow:0 2px 8px rgba(0,0,0,.12);transition:transform .45s cubic-bezier(.3,1.3,.5,1)}
-.seg.r i{transform:translateX(100%)}
-.when{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.2,1,.3,1)}
-.when.on{grid-template-rows:1fr}.when>div{overflow:hidden}
-.sec{font-size:16px;font-weight:800;margin:4px 4px 10px}
-.vs{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:8px 4px 14px;margin:0 -4px 8px}.vs::-webkit-scrollbar{display:none}
-.v{flex:0 0 112px;scroll-snap-align:start;background:var(--card);border:0;border-radius:22px;padding:14px 6px 12px;text-align:center;font:inherit;color:var(--ink);box-shadow:var(--shadow);transition:transform .45s cubic-bezier(.3,1.5,.5,1),background .3s,color .3s}
-.v .e{font-size:34px;display:block;transition:transform .5s cubic-bezier(.3,1.6,.5,1)}
-.v b{display:block;font-size:14px;margin-top:4px}.v small{color:var(--mute);font-size:11px;font-weight:600}
-.v.sel{background:var(--g);color:#fff;transform:translateY(-5px)}
-.v.sel small{color:var(--lime)}.v.sel .e{transform:scale(1.18) translateX(4px)}
-.cta{width:100%;border:0;border-radius:22px;background:var(--lime);color:var(--g);font:inherit;font-weight:800;font-size:17px;padding:18px;box-shadow:0 10px 24px rgba(120,170,20,.35);transition:transform .25s cubic-bezier(.3,1.5,.5,1)}
-.cta:active,.v:active,.swap:active{transform:scale(.94)}
-.cta.wa{background:#25D366;color:#04210F;box-shadow:none}
-.nav{position:absolute;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);display:flex;gap:4px;background:color-mix(in srgb,var(--card) 82%,transparent);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:32px;padding:6px;box-shadow:0 14px 36px rgba(10,59,44,.28);z-index:5}
-.nav button{border:0;background:transparent;color:var(--mute);border-radius:26px;height:48px;min-width:48px;padding:0 14px;display:flex;align-items:center;gap:8px;font:inherit;font-weight:700;font-size:14px;transition:background .4s,color .4s}
-.nav button span{max-width:0;overflow:hidden;white-space:nowrap;transition:max-width .45s cubic-bezier(.3,1.2,.5,1)}
-.nav button.on{background:var(--g);color:var(--lime)}.nav button.on span{max-width:70px}
-.nav svg{width:22px;height:22px;flex:none}
-.page{padding:22px 16px 120px}.page h2{font-size:28px;font-weight:800;letter-spacing:-.6px;margin:0 4px 16px}
+.when{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.2,1,.3,1)}.when.on{grid-template-rows:1fr}.when>div{overflow:hidden}
+.sg{position:absolute;left:0;right:0;top:calc(100% + 6px);background:var(--pop);border-radius:20px;box-shadow:0 16px 40px rgba(20,30,0,.25);overflow-y:auto;display:none;z-index:30;max-height:260px}
+.sg.on{display:block;animation:in .3s cubic-bezier(.2,1,.3,1) both}
+.sg button{display:flex;gap:10px;align-items:center;width:100%;text-align:left;border:0;background:transparent;color:var(--t1);font:inherit;font-weight:600;font-size:14px;padding:12px 14px}
+.sg button+button{border-top:1px solid var(--line)}
+.sg small{display:block;color:var(--t2);font-size:12px;font-weight:500}.sg .pi{font-size:18px;flex:none}
+.sec{font-size:16px;font-weight:700;margin:8px 4px 10px;color:var(--t1)}
+.chips{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding:2px 2px 14px;margin-bottom:4px}
+.rt{flex:none;width:158px;border:0;border-radius:24px;padding:14px;text-align:left;font:inherit;color:var(--t1);background:var(--card);box-shadow:var(--sh);display:flex;justify-content:space-between;align-items:flex-end;gap:6px;transition:transform .3s cubic-bezier(.3,1.5,.5,1)}
+.rt small{display:block;font-size:11px;font-weight:500;color:var(--t2)}.rt b{display:block;font-size:16px;font-weight:700;margin:1px 0}
+.rt i{flex:none;width:34px;height:34px;border-radius:50%;background:var(--btn);color:var(--btnt);display:grid;place-items:center;font-style:normal;font-size:15px}
+.cabs{display:flex;flex-direction:column;gap:10px;margin-bottom:18px}
+.cab{display:flex;align-items:center;gap:12px;width:100%;border:0;border-radius:24px;padding:10px 14px 10px 10px;text-align:left;font:inherit;background:var(--card);color:var(--t1);box-shadow:var(--sh);transition:transform .35s cubic-bezier(.3,1.4,.5,1),background .3s}
+.cab .em{width:52px;height:52px;border-radius:50%;background:var(--field);display:grid;place-items:center;font-size:28px;flex:none;transition:transform .5s cubic-bezier(.3,1.6,.5,1)}
+.cab .nm{flex:1}.cab b{display:block;font-size:15px;font-weight:600}.cab small{font-size:12px;color:var(--t2);font-weight:500}
+.cab .ck{width:30px;height:30px;border-radius:50%;background:#0E0F0A;color:var(--lime);display:grid;place-items:center;font-size:14px;font-style:normal;font-weight:700;opacity:0;transform:scale(.4);transition:.35s cubic-bezier(.3,1.6,.5,1)}
+.cab.sel{background:var(--lime);color:#0E0F0A}.cab.sel small{color:rgba(14,15,10,.65)}.cab.sel .em{background:rgba(255,255,255,.55);transform:scale(1.08) rotate(-4deg)}.cab.sel .ck{opacity:1;transform:none}
+.bookbar{position:absolute;right:16px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:7;transition:opacity .4s,transform .5s cubic-bezier(.2,1,.3,1)}
+.bookbar.off{opacity:0;pointer-events:none;transform:scale(.6)}
+.bookbar button,.cta{border:0;background:var(--btn);color:var(--btnt);font:inherit;font-weight:600;font-size:16px;height:60px;padding:0 26px;border-radius:30px;box-shadow:0 12px 26px rgba(0,0,0,.25);transition:transform .25s cubic-bezier(.3,1.5,.5,1)}
+.bookbar button:active,.cta:active{transform:scale(.94)}
+.cta{height:56px;box-shadow:none}.cta.wa{background:#25D366;color:#04210F;width:100%}.cta.full{width:100%}
+.nav{position:absolute;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;gap:4px;background:var(--nv);border-radius:34px;padding:5px;z-index:7;box-shadow:0 10px 30px rgba(0,0,0,.25);transition:left .5s cubic-bezier(.2,1,.3,1),transform .5s cubic-bezier(.2,1,.3,1)}
+.app.h .nav{left:16px;transform:none}
+.nav button{border:0;background:transparent;color:#B9BCAA;width:52px;height:50px;border-radius:50%;display:grid;place-items:center;transition:background .35s,color .35s}
+.nav button span{display:none}
+.nav button.on{background:var(--lime);color:#0E0F0A}
+.nav svg{width:23px;height:23px}
 .trip{display:flex;gap:12px;align-items:center;animation:in .6s cubic-bezier(.2,1,.3,1) both}
-.trip .e{font-size:28px;background:var(--field);width:52px;height:52px;border-radius:16px;display:grid;place-items:center;flex:none}
-.trip p{margin:2px 0 0;font-size:13px;color:var(--mute);font-weight:600}.trip b{font-size:15px}
-.empty{text-align:center;color:var(--mute);padding:50px 20px;font-weight:600}
-.help a{display:flex;align-items:center;gap:12px;color:var(--ink);text-decoration:none;font-weight:700;padding:14px 0}
-.help a+a{border-top:1px solid var(--field)}
-.scrim{position:fixed;inset:0;background:rgba(5,25,18,.5);opacity:0;pointer-events:none;transition:opacity .4s;z-index:10}.scrim.on{opacity:1;pointer-events:auto}
+.trip .e{font-size:26px;background:var(--field);width:52px;height:52px;border-radius:50%;display:grid;place-items:center;flex:none}
+.trip p{margin:2px 0 0;font-size:13px;color:var(--t2)}.trip b{font-size:15px;font-weight:600}
+.again{margin-left:auto;flex:none;border:0;background:var(--lime);color:#0E0F0A;font:inherit;font-weight:600;font-size:12px;padding:9px 13px;border-radius:16px}
+.empty{text-align:center;color:var(--t2);padding:50px 20px;font-weight:500}
+.help a{display:flex;align-items:center;gap:12px;color:var(--t1);text-decoration:none;font-weight:600;padding:14px 0}
+.help a+a{border-top:1px solid var(--line)}
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}.feat div{border-radius:22px;padding:14px;font-size:13px;font-weight:600}.feat span{display:block;font-size:24px;margin-bottom:4px}
+.founder{display:flex;gap:14px;align-items:center}.founder .av{width:56px;height:56px;border-radius:50%;background:var(--lime);color:#0E0F0A;display:grid;place-items:center;font-weight:700;font-size:20px;flex:none}
+.founder b{font-size:16px;font-weight:600}.founder p{margin:2px 0 0;font-size:13px;color:var(--t2)}
+.note{color:var(--t2);font-size:13px;padding:0 6px}
+.fnd{text-align:center;color:var(--t2);font-size:12px;margin:6px 0 0}
+.scrim{position:fixed;inset:0;background:rgba(10,14,0,.45);opacity:0;pointer-events:none;transition:opacity .4s;z-index:10}.scrim.on{opacity:1;pointer-events:auto}
 .sheet{position:fixed;left:50%;bottom:0;width:100%;max-width:480px;background:var(--card);border-radius:32px 32px 0 0;padding:12px 20px calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,105%);transition:transform .65s cubic-bezier(.2,1.1,.3,1);z-index:11}
 .sheet.on{transform:translate(-50%,0)}
-.grab{width:40px;height:5px;border-radius:3px;background:var(--mute);opacity:.4;margin:0 auto 14px}
-.sheet h3{margin:0 0 12px;font-size:22px;letter-spacing:-.4px}
+.grab{width:40px;height:5px;border-radius:3px;background:var(--t2);opacity:.4;margin:0 auto 14px}
+.sheet h3{margin:0 0 12px;font-size:22px;font-weight:700;letter-spacing:-.4px}
 .sum{display:grid;grid-template-columns:auto 1fr;gap:9px 14px;font-size:14px;margin-bottom:18px}
-.sum span{color:var(--mute);font-weight:600}.sum b{text-align:right;word-break:break-word}
+.sum span{color:var(--t2)}.sum b{text-align:right;word-break:break-word;font-weight:600}
 .ok{text-align:center;display:none;padding:10px 0 4px}.sheet.done .ok{display:block}.sheet.done .ask{display:none}
-.ok svg{width:84px;height:84px}.ok circle{fill:none;stroke:var(--lime);stroke-width:4;stroke-dasharray:252;stroke-dashoffset:252;animation:dr .7s .1s forwards}
-.ok path{fill:none;stroke:#25D366;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:50;stroke-dashoffset:50;animation:dr .5s .6s forwards}
-@keyframes dr{to{stroke-dashoffset:0}}
-.ok p{color:var(--mute);font-weight:600;font-size:14px;margin:6px 0 18px}
+.ok svg{width:84px;height:84px}.ok circle{fill:none;stroke:var(--lime2);stroke-width:4;stroke-dasharray:252;stroke-dashoffset:252;animation:dr2 .7s .1s forwards}
+.ok path{fill:none;stroke:#25D366;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:50;stroke-dashoffset:50;animation:dr2 .5s .6s forwards}
+@keyframes dr2{to{stroke-dashoffset:0}}
+.ok p{color:var(--t2);font-size:14px;margin:6px 0 18px}
 .shake{animation:sh .4s}@keyframes sh{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
-.splash{position:fixed;inset:0;background:var(--g);z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;transition:opacity .45s ease,transform .6s cubic-bezier(.4,0,.2,1);will-change:transform,opacity;overflow:hidden}
-.splash.out{opacity:0;transform:scale(1.15);pointer-events:none}
-.splash .big{width:92px;height:92px;border-radius:28px;background:var(--lime);display:grid;place-items:center;font-size:48px;animation:pop .55s cubic-bezier(.3,1.4,.5,1) both}
-.splash h3{margin:20px 0 4px;font-size:24px;font-weight:800;letter-spacing:-.4px;animation:up .5s .15s cubic-bezier(.2,1,.3,1) both}
-.splash p{margin:0;font-weight:600;opacity:.7;animation:up .5s .25s cubic-bezier(.2,1,.3,1) both}
-@keyframes pop{from{transform:scale(.3) rotate(-25deg);opacity:0}}
-@keyframes up{from{transform:translateY(18px);opacity:0}}
+.splash{position:fixed;inset:0;background:var(--lime);z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#0E0F0A;transition:opacity .45s ease,transform .6s cubic-bezier(.4,0,.2,1);will-change:transform,opacity}
+.splash.out{opacity:0;transform:scale(1.1);pointer-events:none}
+.splash .big{width:96px;height:96px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:48px;animation:pop .55s cubic-bezier(.3,1.4,.5,1) both}
+.splash h3{margin:20px 0 4px;font-size:22px;font-weight:700;letter-spacing:.5px;animation:up .5s .15s cubic-bezier(.2,1,.3,1) both}
+.splash p{margin:0;font-weight:500;opacity:.7;animation:up .5s .25s cubic-bezier(.2,1,.3,1) both}
+@keyframes pop{from{transform:scale(.3) rotate(-25deg);opacity:0}}@keyframes up{from{transform:translateY(18px);opacity:0}}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-iteration-count:1!important;transition-duration:.01s!important}}
 </style>
 </head>
 <body>
-<div class="splash" id="splash"><div class="big">🚖</div><h3>MANGALYATRA24 RIDE</h3><p>Safe rides, on time</p><p style="margin-top:28px;font-size:12px">Founder · Dhananjay Prajapati</p></div>
+<div class="bg"><i></i><i></i><i></i></div>
+<div class="splash" id="splash"><div class="big glass">🚖</div><h3>MANGALYATRA24 RIDE</h3><p>Safe rides, on time</p><p style="margin-top:28px;font-size:12px">Founder · Dhananjay Prajapati</p></div>
 
-<div class="app">
+<div class="app h">
   <section class="view on" id="home">
-    <div class="hero">
-      <div class="brand"><span><i class="mark">🚖</i>MANGALYATRA24</span><div class="live"><i></i>Cabs online</div></div>
-      <h1 id="hello">Where would you<br>like to go?</h1>
-      <p class="sub">Book a cab in under a minute</p>
-      <div class="scene"><div class="lane" style="top:27%"></div><div class="lane" style="top:54%"></div><div class="lane" style="top:82%"></div><i class="c" style="top:calc(27% - 26px);animation:dr 11s linear -3s infinite">🚕</i><i class="c" style="top:calc(27% - 26px);animation:dr 11s linear -8s infinite">🚗</i><i class="c l" style="top:calc(54% - 26px);animation:dl 14s linear -2s infinite">🚙</i><i class="c l" style="top:calc(54% - 26px);animation:dl 14s linear -9s infinite">🚕</i><i class="c" style="top:calc(82% - 26px);animation:dr 8s linear -1s infinite">🚕</i><i class="c" style="top:calc(82% - 26px);animation:dr 8s linear -5s infinite">🚗</i><div class="pin"></div></div>
+    <div class="top"><div class="logo glass">🚖</div><div class="brand">MANGALYATRA24 RIDE</div><button class="ic glass" data-go="help" aria-label="Help">?</button></div>
+    <div class="hero"><h1 id="hello">Book a cab<br>within seconds</h1><div class="road"><i>🚕</i><i class="b">🚖</i></div></div>
+    <div class="opts" id="opts">
+      <button class="on" data-g="w" data-v="now">Ride now</button><button data-g="w" data-v="later">Ride later</button><span class="sep"></span>
+      <button class="on" data-g="t" data-v="One way">One way</button><button data-g="t" data-v="Round trip">Round trip</button><span class="sep"></span>
+      <button class="on" data-g="p" data-v="Cash">Cash</button><button data-g="p" data-v="UPI">UPI</button>
     </div>
-    <div class="body">
-      <div class="card in" style="animation-delay:.8s">
-        <div class="route">
-          <div class="rf"><label for="pick">Pickup point</label><input id="pick" placeholder="Where should we pick you up?" autocomplete="off"><button type="button" class="loc" id="loc" aria-label="Use my current location">📍</button><div class="sg" id="sgPick"></div></div>
-          <div class="rf to"><label for="drop">Drop point</label><input id="drop" placeholder="Where are you going?" autocomplete="off"><div class="sg" id="sgDrop"></div></div>
-          <button class="swap" id="swap" aria-label="Swap pickup and drop">⇅</button>
-        </div>
-        <div class="seg" id="seg"><i></i><button data-w="now">Ride now</button><button data-w="later">Ride later</button></div>
-        <div class="when" id="whenBox"><div><div class="rf"><label for="when">Date and time</label><input type="datetime-local" id="when"></div></div></div>
-        <div class="row">
-          <div class="rf" style="margin:0"><label for="pax">Passengers</label><select id="pax"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div>
-          <div class="rf" style="margin:0"><label for="phone">Phone number</label><input id="phone" type="tel" inputmode="tel" placeholder="98765 43210"></div>
-        </div>
-        <div class="rf" style="margin:10px 0 0"><label for="name">Full name</label><input id="name" placeholder="Your name" autocomplete="name"></div><div class="lbl">Trip type</div><div class="chips two" id="trip"><button class="on" data-t="One way">One way</button><button data-t="Round trip">Round trip</button></div><div class="lbl">Payment</div><div class="chips two" id="pay"><button class="on" data-t="Cash">Cash</button><button data-t="UPI">UPI</button></div><div class="rf" style="margin:12px 0 0"><label for="note">Note for driver (optional)</label><input id="note" placeholder="Luggage, stops on the way…"></div>
+    <div class="sec">Popular routes</div>
+    <div class="chips" id="routes"></div>
+    <div class="card glass in" style="animation-delay:.8s">
+      <div class="route">
+        <div class="rf"><label for="pick">Pickup point</label><input id="pick" placeholder="Where should we pick you up?" autocomplete="off"><button type="button" class="loc" id="loc" aria-label="Use my current location">📍</button><div class="sg" id="sgPick"></div></div>
+        <div class="rf to"><label for="drop">Drop point</label><input id="drop" placeholder="Where are you going?" autocomplete="off"><div class="sg" id="sgDrop"></div></div>
+        <button class="swap" id="swap" aria-label="Swap pickup and drop">⇅</button>
       </div>
-      <div class="in" style="animation-delay:.95s">
-        <div class="sec">Popular routes</div><div class="chips rt" id="routes"></div><div class="sec">Pick a cab</div>
-        <div class="vs" id="vs"></div>
-        <button class="cta" id="book">Book my ride</button><p class="fnd">MANGALYATRA24 RIDE · Founded by Dhananjay Prajapati</p>
+      <div class="when" id="whenBox"><div><div class="rf"><label for="when">Date and time</label><input type="datetime-local" id="when"></div></div></div>
+      <div class="row">
+        <div class="rf" style="margin:0"><label for="pax">Passengers</label><select id="pax"><option>1</option></select></div>
+        <div class="rf" style="margin:0"><label for="phone">Phone number</label><input id="phone" type="tel" inputmode="tel" placeholder="98765 43210"></div>
       </div>
+      <div class="rf" style="margin:10px 0 0"><label for="name">Full name</label><input id="name" placeholder="Your name" autocomplete="name"></div>
+      <div class="rf" style="margin:10px 0 0"><label for="note">Note for driver (optional)</label><input id="note" placeholder="Luggage, stops on the way…"></div>
+    </div>
+    <div class="in" style="animation-delay:.95s">
+      <div class="sec">Choose your cab</div>
+      <div class="cabs" id="vs"></div>
+      <p class="fnd">MANGALYATRA24 RIDE · Founded by Dhananjay Prajapati</p>
     </div>
   </section>
 
-  <section class="view" id="rides"><div class="page"><h2>My trips</h2><div id="list"></div></div></section>
+  <section class="view" id="rides"><div class="top"><div class="logo glass">🚖</div></div><h2>My trips</h2><div id="list"></div></section>
 
-  <section class="view" id="help"><div class="page"><h2>Need help?</h2>
-    <div class="card help">
+  <section class="view" id="help"><div class="top"><div class="logo glass">🚖</div></div><h2>Need help?</h2>
+    <div class="card glass help">
       <a href="https://wa.me/917979915428" target="_blank" rel="noopener"><span style="font-size:24px">💬</span>Chat with us on WhatsApp</a>
       <a href="tel:+917979915428"><span style="font-size:24px">📞</span>Call +91 79799 15428</a>
     </div>
-    <div class="card" id="inst" style="display:none"><b>Install the app</b><p id="instTxt" style="margin:4px 0 12px;font-size:13px;color:var(--mute);font-weight:500">Add MANGALYATRA24 RIDE to your home screen and open it like a normal app.</p><button class="cta" id="instBtn">Install app</button></div><div class="feat"><div><span>⏰</span>24×7 booking</div><div><span>🛣️</span>Local and outstation rides</div><div><span>💬</span>Fare confirmed on WhatsApp</div><div><span>📞</span>Call us any time</div></div><div class="card founder"><div class="av">DP</div><div><b>Dhananjay Prajapati</b><p>Founder, MANGALYATRA24 RIDE</p></div></div><p style="color:var(--mute);font-size:13px;font-weight:600;padding:0 6px">We confirm your driver and fare on WhatsApp right after you send your request.</p>
-  </div></section>
+    <div class="card glass" id="inst" style="display:none"><b>Install the app</b><p id="instTxt" style="margin:4px 0 12px;font-size:13px;color:var(--t2)">Add MANGALYATRA24 RIDE to your home screen and open it like a normal app.</p><button class="cta full" id="instBtn">Install app</button></div>
+    <div class="feat"><div class="glass"><span>⏰</span>24×7 booking</div><div class="glass"><span>🛣️</span>Local and outstation rides</div><div class="glass"><span>💬</span>Fare confirmed on WhatsApp</div><div class="glass"><span>📞</span>Call us any time</div></div>
+    <div class="card glass founder"><div class="av">DP</div><div><b>Dhananjay Prajapati</b><p>Founder, MANGALYATRA24 RIDE</p></div></div>
+    <p class="note">We confirm your driver and fare on WhatsApp right after you send your request.</p>
+  </section>
 
-  <nav class="nav" id="nav">
+  <div class="bookbar" id="bookbar"><button id="book" aria-label="Book my ride">Book now</button></div>
+  <nav class="nav glass" id="nav">
     <button class="on" data-v="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span>Home</span></button>
     <button data-v="rides"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Trips</span></button>
     <button data-v="help"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg><span>Help</span></button>
@@ -185,80 +178,57 @@ input::placeholder{color:var(--mute);font-weight:600}
 <div class="sheet" id="sheet" role="dialog" aria-label="Confirm ride">
   <div class="grab"></div>
   <div class="ask"><h3>Review your ride</h3><div class="sum" id="sum"></div><button class="cta wa" id="send">Confirm on WhatsApp</button></div>
-  <div class="ok"><svg viewBox="0 0 90 90"><circle cx="45" cy="45" r="40"/><path d="M28 47l12 12 23-26"/></svg><h3>Request ready</h3><p>Press send in WhatsApp to finish booking.</p><button class="cta" id="done">Done</button></div>
+  <div class="ok"><svg viewBox="0 0 90 90"><circle cx="45" cy="45" r="40"/><path d="M28 47l12 12 23-26"/></svg><h3>Request ready</h3><p>Press send in WhatsApp to finish booking.</p><button class="cta full" id="done">Done</button></div>
 </div>
 
 <script>
 var WA="917979915428";
-var VEH=[{id:"hatch",e:"🚕",n:"Hatchback",s:"4 seats",m:4},{id:"sedan",e:"🚗",n:"Sedan",s:"4 seats",m:4},{id:"suv",e:"🚙",n:"SUV",s:"6 seats",m:6},{id:"innova",e:"🚐",n:"Innova",s:"7 seats",m:7},{id:"lux",e:"🚘",n:"Luxury",s:"4 seats",m:4},{id:"tt",e:"🚌",n:"Traveller",s:"12 seats",m:12}];
+var VEH=[{id:"hatch",e:"🚕",n:"Hatchback",s:"4 seats",m:4,a:"#CDEBD9",b:"#B5DEC8",d:"#2F7A5A"},{id:"sedan",e:"🚗",n:"Sedan",s:"4 seats",m:4,a:"#FBF3B6",b:"#F4E895",d:"#9A7B14"},{id:"suv",e:"🚙",n:"SUV",s:"6 seats",m:6,a:"#DAD4F7",b:"#C6BEF0",d:"#5B4BB0"},{id:"innova",e:"🚐",n:"Innova",s:"7 seats",m:7,a:"#C3E2F8",b:"#A8D3F3",d:"#2D6FA8"},{id:"lux",e:"🚘",n:"Luxury",s:"4 seats",m:4,a:"#F8D5E4",b:"#F2BDD3",d:"#B24A7B"},{id:"tt",e:"🚌",n:"Traveller",s:"12 seats",m:12,a:"#FBDCC6",b:"#F6C7A6",d:"#B5602A"}];
+var SEED=["Gopalganj, Bihar","Gorakhpur, UP","Delhi","Noida, UP","Siwan, Bihar","Bettiah, Bihar","Motihari, Bihar","Patna, Bihar","Chhapra, Bihar","Muzaffarpur, Bihar","Hajipur, Bihar","Gaya, Bihar","Darbhanga, Bihar","Sitamarhi, Bihar","Raxaul, Bihar","Narkatiaganj, Bihar","Hathua, Bihar","Mirganj, Bihar","Kuchaikote, Bihar","Barauli, Bihar","Thawe, Bihar","Bhorey, Bihar","Vijaipur, Bihar","Mairwa, Bihar","Maharajganj, Bihar","Samastipur, Bihar","Begusarai, Bihar","Bhagalpur, Bihar","Purnia, Bihar","Arrah, Bihar","Buxar, Bihar","Sasaram, Bihar","Madhubani, Bihar","Patna Junction, Bihar","Patna Airport, Bihar","Gorakhpur Railway Station, UP","Gorakhpur Airport, UP","Deoria, UP","Kushinagar, UP","Padrauna, UP","Basti, UP","Azamgarh, UP","Ballia, UP","Mau, UP","Varanasi, UP","Prayagraj, UP","Ayodhya, UP","Lucknow, UP","Kanpur, UP","Agra, UP","Mathura, UP","Meerut, UP","Ghaziabad, UP","Greater Noida, UP","New Delhi Railway Station","Anand Vihar, Delhi","IGI Airport, Delhi","Gurugram, Haryana","Faridabad, Haryana","Kolkata, West Bengal","Ranchi, Jharkhand"];
+var ROUTES=[["Gopalganj, Bihar","Gorakhpur, UP"],["Gopalganj, Bihar","Patna, Bihar"],["Gopalganj, Bihar","Delhi"],["Siwan, Bihar","Delhi"],["Bettiah, Bihar","Noida, UP"],["Motihari, Bihar","Patna, Bihar"],["Gorakhpur, UP","Delhi"]];
 var $=function(i){return document.getElementById(i)};
-var sel="hatch",when="now",rides=[],cur=null;
+var sel="hatch",st={w:"now",t:"One way",p:"Cash"},rides=[],cur=null,pickLL=null,dp=null;
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function openWA(u){if(window.Capacitor&&Capacitor.isNativePlatform&&Capacitor.isNativePlatform())location.href=u;else window.open(u,"_blank")}
 try{rides=JSON.parse(localStorage.getItem("m24rides")||"[]")}catch(e){}
-try{var sv=JSON.parse(localStorage.getItem("m24user")||"{}");$("name").value=sv.n||"";$("phone").value=sv.p||"";if(sv.n)$("hello").innerHTML="Hi "+esc(sv.n.split(" ")[0])+",<br>where to today?"}catch(e){}
+try{var sv=JSON.parse(localStorage.getItem("m24user")||"{}");$("name").value=sv.n||"";$("phone").value=sv.p||"";if(sv.n)$("hello").innerHTML="Hi "+esc(sv.n.split(" ")[0])+",<br>where to?"}catch(e){}
 
-$("vs").innerHTML=VEH.map(function(v){return '<button class="v'+(v.id===sel?' sel':'')+'" data-id="'+v.id+'"><span class="e">'+v.e+'</span><b>'+v.n+'</b><small>'+v.s+'</small></button>'}).join("");
-$("vs").onclick=function(ev){var b=ev.target.closest(".v");if(!b)return;sel=b.dataset.id;limit();[].forEach.call(document.querySelectorAll(".v"),function(x){x.classList.toggle("sel",x===b)});if(navigator.vibrate)navigator.vibrate(8)};
+$("vs").innerHTML=VEH.map(function(v){return '<button class="cab'+(v.id===sel?' sel':'')+'" data-id="'+v.id+'"><span class="em">'+v.e+'</span><span class="nm"><b>'+v.n+'</b><small>AC · up to '+v.m+' people</small></span><i class="ck">✓</i></button>'}).join("");
+function limit(){var v=VEH.filter(function(x){return x.id===sel})[0],c=+$("pax").value||1,h="";for(var i=1;i<=v.m;i++)h+="<option>"+i+"</option>";$("pax").innerHTML=h;$("pax").value=Math.min(c,v.m)}
+$("vs").onclick=function(ev){var b=ev.target.closest(".cab");if(!b)return;sel=b.dataset.id;limit();[].forEach.call(document.querySelectorAll(".cab"),function(x){x.classList.toggle("sel",x===b)});if(navigator.vibrate)navigator.vibrate(8)};
+limit();
+
+$("opts").onclick=function(ev){var b=ev.target.closest("button");if(!b)return;var g=b.dataset.g;st[g]=b.dataset.v;[].forEach.call(this.querySelectorAll('[data-g="'+g+'"]'),function(x){x.classList.toggle("on",x===b)});if(g==="w")$("whenBox").classList.toggle("on",st.w==="later")};
+$("routes").innerHTML=ROUTES.map(function(r,i){return '<button class="rt" data-i="'+i+'"><span><small>From</small><b>'+r[0].split(",")[0]+'</b><small>to '+r[1].split(",")[0]+'</small></span><i>→</i></button>'}).join("");
+$("routes").onclick=function(ev){var b=ev.target.closest("button");if(!b)return;var r=ROUTES[+b.dataset.i];$("pick").value=r[0];pickLL=null;$("drop").value=r[1];if(navigator.vibrate)navigator.vibrate(8)};
 $("swap").onclick=function(){pickLL=null;var a=$("pick"),b=$("drop"),t=a.value;a.value=b.value;b.value=t;this._r=(this._r||0)+180;this.style.transform="rotate("+this._r+"deg)"};
-$("seg").onclick=function(ev){var b=ev.target.closest("button");if(!b)return;when=b.dataset.w;this.classList.toggle("r",when==="later");$("whenBox").classList.toggle("on",when==="later")};
 
+function go(v){[].forEach.call(document.querySelectorAll(".view"),function(x){x.classList.toggle("on",x.id===v)});[].forEach.call(document.querySelectorAll(".nav button"),function(x){x.classList.toggle("on",x.dataset.v===v)});$("bookbar").classList.toggle("off",v!=="home");document.querySelector(".app").classList.toggle("h",v==="home");if(v==="rides")draw()}
 $("nav").onclick=function(ev){var b=ev.target.closest("button");if(b)go(b.dataset.v)};
-function go(v){[].forEach.call(document.querySelectorAll(".view"),function(x){x.classList.toggle("on",x.id===v)});[].forEach.call(document.querySelectorAll(".nav button"),function(x){x.classList.toggle("on",x.dataset.v===v)});if(v==="rides")draw()}
-function draw(){$("list").innerHTML=rides.length?rides.map(function(r,i){return '<div class="card trip" style="animation-delay:'+i*60+'ms"><span class="e">'+r.e+'</span><div><b>'+esc(r.drop)+'</b><p>From '+esc(r.pick)+'</p><p>'+esc(r.when)+' · '+esc(r.vn)+(r.trip?' · '+esc(r.trip):'')+'</p></div><button class="again" data-i="'+i+'">Book again</button></div>'}).join(""):'<div class="empty"><div style="font-size:46px">🚖</div>No trips yet.<br>Your booked rides will show up here.</div>'}
+document.querySelector("[data-go]").onclick=function(){go("help")};
+function draw(){$("list").innerHTML=rides.length?rides.map(function(r,i){return '<div class="card glass trip" style="animation-delay:'+i*60+'ms"><span class="e">'+r.e+'</span><div><b>'+esc(r.drop)+'</b><p>From '+esc(r.pick)+'</p><p>'+esc(r.when)+' · '+esc(r.vn)+(r.trip?' · '+esc(r.trip):'')+'</p></div><button class="again" data-i="'+i+'">Book again</button></div>'}).join(""):'<div class="empty"><div style="font-size:46px">🚖</div>No trips yet.<br>Your booked rides will show up here.</div>'}
+$("list").onclick=function(ev){var b=ev.target.closest(".again");if(!b)return;var r=rides[+b.dataset.i];$("pick").value=r.pick;pickLL=null;$("drop").value=r.drop;go("home")};
 
 function fail(el){var f=el.closest(".rf");f.classList.remove("shake");void f.offsetWidth;f.classList.add("shake");el.focus()}
+function sheet(o){$("sheet").classList.toggle("on",o);$("scrim").classList.toggle("on",o)}
 $("book").onclick=function(){
   var p=$("pick").value.trim(),d=$("drop").value.trim(),n=$("name").value.trim(),ph=$("phone").value.replace(/[^\d+]/g,"");
   if(!p)return fail($("pick"));if(!d)return fail($("drop"));
-  var w="Now";if(when==="later"){var dv=$("when").value;if(!dv)return fail($("when"));w=new Date(dv).toLocaleString("en-IN",{dateStyle:"medium",timeStyle:"short"})}
+  var w="Now";if(st.w==="later"){var dv=$("when").value;if(!dv)return fail($("when"));w=new Date(dv).toLocaleString("en-IN",{dateStyle:"medium",timeStyle:"short"})}
   if(ph.replace(/\D/g,"").length<10)return fail($("phone"));if(!n)return fail($("name"));
   var v=VEH.filter(function(x){return x.id===sel})[0];
-  cur={pick:p,drop:d,name:n,phone:ph,pax:$("pax").value,when:w,vn:v.n,e:v.e,trip:trip,pay:pay,note:$("note").value.trim(),ll:pickLL?pickLL.lat.toFixed(6)+","+pickLL.lng.toFixed(6):""};
-  $("sum").innerHTML=[["Pickup",p],["Drop",d],["Cab",v.n+" · "+cur.pax+" passenger(s)"],["When",w],["Trip",trip+" · "+pay],["Name",n],["Phone",ph]].concat(cur.note?[["Note",cur.note]]:[]).map(function(r){return "<span>"+r[0]+"</span><b>"+esc(r[1])+"</b>"}).join("");
+  cur={pick:p,drop:d,name:n,phone:ph,pax:$("pax").value,when:w,vn:v.n,e:v.e,trip:st.t,pay:st.p,note:$("note").value.trim(),ll:pickLL?pickLL.lat.toFixed(6)+","+pickLL.lng.toFixed(6):""};
+  $("sum").innerHTML=[["Pickup",p],["Drop",d],["Cab",v.n+" · "+cur.pax+" passenger(s)"],["When",w],["Trip",st.t+" · "+st.p],["Name",n],["Phone",ph]].concat(cur.note?[["Note",cur.note]]:[]).map(function(r){return "<span>"+r[0]+"</span><b>"+esc(r[1])+"</b>"}).join("");
   $("sheet").classList.remove("done");sheet(true)};
-function sheet(o){$("sheet").classList.toggle("on",o);$("scrim").classList.toggle("on",o)}
 $("scrim").onclick=function(){sheet(false)};
 $("done").onclick=function(){sheet(false);setTimeout(function(){go("rides")},400)};
 $("send").onclick=function(){
   var m="🚖 *New ride request – MANGALYATRA24 RIDE*\n\n*Name:* "+cur.name+"\n*Phone:* "+cur.phone+"\n*Pickup:* "+cur.pick+"\n*Drop:* "+cur.drop+"\n*Cab:* "+cur.vn+"\n*Passengers:* "+cur.pax+"\n*When:* "+cur.when+"\n*Trip:* "+cur.trip+"\n*Payment:* "+cur.pay+(cur.note?"\n*Note:* "+cur.note:"")+(cur.ll?"\n*Pickup map:* https://maps.google.com/?q="+cur.ll:"");
   rides.unshift(cur);rides=rides.slice(0,30);
   try{localStorage.setItem("m24rides",JSON.stringify(rides));localStorage.setItem("m24user",JSON.stringify({n:cur.name,p:cur.phone}))}catch(e){}
-  $("sheet").classList.add("done");$("note").value="";pickLL=null;$("pick").value="";$("drop").value="";
+  $("sheet").classList.add("done");$("note").value="";$("pick").value="";$("drop").value="";pickLL=null;
   openWA("https://wa.me/"+WA+"?text="+encodeURIComponent(m))};
 
-var SEED=["Gopalganj, Bihar","Gorakhpur, UP","Delhi","Noida, UP","Siwan, Bihar","Bettiah, Bihar","Motihari, Bihar","Patna, Bihar","Chhapra, Bihar","Muzaffarpur, Bihar","Hajipur, Bihar","Gaya, Bihar","Darbhanga, Bihar","Sitamarhi, Bihar","Raxaul, Bihar","Narkatiaganj, Bihar","Hathua, Bihar","Mirganj, Bihar","Kuchaikote, Bihar","Barauli, Bihar","Thawe, Bihar","Bhorey, Bihar","Vijaipur, Bihar","Mairwa, Bihar","Maharajganj, Bihar","Basantpur, Bihar","Samastipur, Bihar","Begusarai, Bihar","Bhagalpur, Bihar","Purnia, Bihar","Arrah, Bihar","Buxar, Bihar","Sasaram, Bihar","Madhubani, Bihar","Patna Junction, Bihar","Patna Airport, Bihar","Gaya Airport, Bihar","Gorakhpur Railway Station, UP","Gorakhpur Airport, UP","Deoria, UP","Kushinagar, UP","Padrauna, UP","Basti, UP","Azamgarh, UP","Ballia, UP","Mau, UP","Varanasi, UP","Varanasi Airport, UP","Prayagraj, UP","Ayodhya, UP","Lucknow, UP","Kanpur, UP","Agra, UP","Mathura, UP","Meerut, UP","Ghaziabad, UP","Greater Noida, UP","Noida Sector 62, UP","New Delhi Railway Station","Anand Vihar, Delhi","IGI Airport, Delhi","Gurugram, Haryana","Faridabad, Haryana","Kolkata, West Bengal","Ranchi, Jharkhand"];
-function setup(id,boxId,isPick){
- var inp=$(id),box=$(boxId),tm,seq=0;
- function show(items){if(!items.length){box.classList.remove("on");return}box.innerHTML=items.map(function(x){return '<button type="button" data-v="'+esc(x.v)+'"'+(x.loc?' data-loc="1"':'')+'><span class="pi">'+x.i+'</span><span>'+esc(x.t)+(x.s?'<small>'+esc(x.s)+'</small>':'')+'</span></button>'}).join("");box.classList.add("on")}
- function local(q){var l=q.toLowerCase(),out=[],seen={};if(isPick&&!q)out.push({i:"📍",t:"Use my current location",v:"",loc:1});
-  rides.forEach(function(r){[r.pick,r.drop].forEach(function(p){if(p&&!seen[p]&&(!q||p.toLowerCase().indexOf(l)>-1)&&out.length<5){seen[p]=1;out.push({i:"🕘",t:p,s:"Recent",v:p})}})});
-  var m=SEED.filter(function(s){return !seen[s]&&(!q||s.toLowerCase().indexOf(l)>-1)});if(q)m.sort(function(a,b){return (a.toLowerCase().indexOf(l)!==0)-(b.toLowerCase().indexOf(l)!==0)});m.slice(0,q?7:4).forEach(function(s){out.push({i:"📌",t:s.split(", ")[0],s:s.indexOf(", ")>-1?s.split(", ").slice(1).join(", "):"Popular",v:s})});
-  return out}
- function upd(){var q=inp.value.trim(),base=local(q);show(base);clearTimeout(tm);if(q.length<3)return;var my=++seq;
-  tm=setTimeout(function(){fetch("https://nominatim.openstreetmap.org/search?format=json&limit=5&countrycodes=in&q="+encodeURIComponent(q)).then(function(r){return r.json()}).then(function(a){if(my!==seq||document.activeElement!==inp)return;var ex=a.map(function(p){var n=p.display_name.split(", ");return{i:"📍",t:n.slice(0,2).join(", "),s:n.slice(2,5).join(", "),v:n.slice(0,4).join(", ")}});show(ex.concat(base))}).catch(function(){})},350)}
- inp.addEventListener("input",upd);inp.addEventListener("focus",upd);
- inp.addEventListener("blur",function(){setTimeout(function(){box.classList.remove("on")},200)});
- box.addEventListener("click",function(ev){var b=ev.target.closest("button");if(!b)return;
-  if(b.dataset.loc){locate()}
-  else{inp.value=b.dataset.v;if(isPick)pickLL=null}box.classList.remove("on")});
-}
-var trip="One way",pay="Cash";
-function chip(id,cb){$(id).onclick=function(ev){var b=ev.target.closest("button");if(!b)return;[].forEach.call(this.children,function(x){x.classList.toggle("on",x===b)});cb(b.dataset.t)}}
-chip("trip",function(t){trip=t});chip("pay",function(t){pay=t});
-var ROUTES=[["Gopalganj, Bihar","Gorakhpur, UP"],["Gopalganj, Bihar","Patna, Bihar"],["Gopalganj, Bihar","Delhi"],["Siwan, Bihar","Delhi"],["Bettiah, Bihar","Noida, UP"],["Motihari, Bihar","Patna, Bihar"],["Gorakhpur, UP","Delhi"]];
-$("routes").innerHTML=ROUTES.map(function(r,i){return '<button data-i="'+i+'">'+r[0].split(",")[0]+' → '+r[1].split(",")[0]+'</button>'}).join("");
-$("routes").onclick=function(ev){var b=ev.target.closest("button");if(!b)return;var r=ROUTES[+b.dataset.i];$("pick").value=r[0];pickLL=null;$("drop").value=r[1];if(navigator.vibrate)navigator.vibrate(8)};
-$("list").onclick=function(ev){var b=ev.target.closest(".again");if(!b)return;var r=rides[+b.dataset.i];$("pick").value=r.pick;pickLL=null;$("drop").value=r.drop;go("home")};
-function limit(){var v=VEH.filter(function(x){return x.id===sel})[0],c=+$("pax").value||1,h="";for(var i=1;i<=v.m;i++)h+="<option>"+i+"</option>";$("pax").innerHTML=h;$("pax").value=Math.min(c,v.m)}
-limit();
-function openWA(u){if(window.Capacitor&&Capacitor.isNativePlatform&&Capacitor.isNativePlatform())location.href=u;else window.open(u,"_blank")}
-var dp=null;
-window.addEventListener("beforeinstallprompt",function(e){e.preventDefault();dp=e;$("inst").style.display="block"});
-$("instBtn").onclick=function(){if(dp){dp.prompt();dp=null;$("inst").style.display="none"}};
-var ios=/iphone|ipad|ipod/i.test(navigator.userAgent),sa=(window.matchMedia&&matchMedia("(display-mode: standalone)").matches)||navigator.standalone;
-if(ios&&!sa){$("inst").style.display="block";$("instBtn").style.display="none";$("instTxt").textContent="Tap the Share button, then “Add to Home Screen”."}
-if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").catch(function(){});
-var pickLL=null;
 function locate(){var inp=$("pick"),btn=$("loc");$("sgPick").classList.remove("on");
  if(!navigator.geolocation){inp.placeholder="Location not supported – type your pickup";return}
  inp.value="";pickLL=null;inp.placeholder="Finding your location…";btn.classList.add("spin");
@@ -267,7 +237,28 @@ function locate(){var inp=$("pick"),btn=$("loc");$("sgPick").classList.remove("o
   function(){btn.classList.remove("spin");inp.placeholder="Location blocked – type your pickup point"},{enableHighAccuracy:true,timeout:10000,maximumAge:60000})}
 $("loc").onclick=locate;
 $("pick").addEventListener("input",function(){pickLL=null});
+
+function setup(id,boxId,isPick){
+ var inp=$(id),box=$(boxId),tm,seq=0;
+ function show(items){if(!items.length){box.classList.remove("on");return}box.innerHTML=items.map(function(x){return '<button type="button" data-v="'+esc(x.v)+'"'+(x.loc?' data-loc="1"':'')+'><span class="pi">'+x.i+'</span><span>'+esc(x.t)+(x.s?'<small>'+esc(x.s)+'</small>':'')+'</span></button>'}).join("");box.classList.add("on")}
+ function local(q){var l=q.toLowerCase(),out=[],seen={};if(isPick&&!q)out.push({i:"📍",t:"Use my current location",v:"",loc:1});
+  rides.forEach(function(r){[r.pick,r.drop].forEach(function(p){if(p&&!seen[p]&&(!q||p.toLowerCase().indexOf(l)>-1)&&out.length<5){seen[p]=1;out.push({i:"🕘",t:p,s:"Recent",v:p})}})});
+  var m=SEED.filter(function(s){return !seen[s]&&(!q||s.toLowerCase().indexOf(l)>-1)});if(q)m.sort(function(a,b){return (a.toLowerCase().indexOf(l)!==0)-(b.toLowerCase().indexOf(l)!==0)});
+  m.slice(0,q?7:4).forEach(function(s){out.push({i:"📌",t:s.split(", ")[0],s:s.indexOf(", ")>-1?s.split(", ").slice(1).join(", "):"Popular",v:s})});return out}
+ function upd(){var q=inp.value.trim(),base=local(q);show(base);clearTimeout(tm);if(q.length<3)return;var my=++seq;
+  tm=setTimeout(function(){fetch("https://nominatim.openstreetmap.org/search?format=json&limit=5&countrycodes=in&q="+encodeURIComponent(q)).then(function(r){return r.json()}).then(function(a){if(my!==seq||document.activeElement!==inp)return;var ex=a.map(function(p){var n=p.display_name.split(", ");return{i:"📍",t:n.slice(0,2).join(", "),s:n.slice(2,5).join(", "),v:n.slice(0,4).join(", ")}});show(ex.concat(base))}).catch(function(){})},350)}
+ inp.addEventListener("input",upd);inp.addEventListener("focus",upd);
+ inp.addEventListener("blur",function(){setTimeout(function(){box.classList.remove("on")},200)});
+ box.addEventListener("click",function(ev){var b=ev.target.closest("button");if(!b)return;
+  if(b.dataset.loc){locate()}else{inp.value=b.dataset.v;if(isPick)pickLL=null}box.classList.remove("on")});
+}
 setup("pick","sgPick",true);setup("drop","sgDrop",false);
+
+window.addEventListener("beforeinstallprompt",function(e){e.preventDefault();dp=e;$("inst").style.display="block"});
+$("instBtn").onclick=function(){if(dp){dp.prompt();dp=null;$("inst").style.display="none"}};
+var ios=/iphone|ipad|ipod/i.test(navigator.userAgent),sa=(window.matchMedia&&matchMedia("(display-mode: standalone)").matches)||navigator.standalone;
+if(ios&&!sa){$("inst").style.display="block";$("instBtn").style.display="none";$("instTxt").textContent="Tap the Share button, then “Add to Home Screen”."}
+if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").catch(function(){});
 setTimeout(function(){$("splash").classList.add("out")},1100);
 </script>
 </body>
